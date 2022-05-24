@@ -13,3 +13,11 @@ chmod +x btcaddressvalidator.sh
 
 ./btcaddressvalidator.sh -a <btc address>
 ```
+
+## Abuse Report Collection
+
+You can request abuse reports for the specified address with the ```-r``` flag:
+
+```
+./btcaddressvalidator.sh -a <btc address> -r
+```
