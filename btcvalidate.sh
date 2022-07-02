@@ -63,23 +63,12 @@ if [ "$isitvalid" = "Valid Bitcoin Address" ]; then
         if [ "$abusereport" = "true" ]; then
                 echo
                 echo "Checking abuse reports"
-                curl https://www.bitcoinabuse.com/reports/112FWGSL2q7rVTgabQuJbo3WwKid8dMEtj -o $dir/abusereport -s
+                curl https://www.bitcoinabuse.com/reports/$btcaddress -o $dir/abusereport -s
                 grep -oP '<td>.+' $dir/abusereport > $dir/relevantinfo
                 reportcount=$(sed -n 2p $dir/relevantinfo | grep -oP 'td>\K\d+')
                 echo
                 echo '\033[1mThis address has been reported '"$reportcount" 'times\033[0m'
-                echo "Printing all reports..."
-                echo
-                j=1
-                for i in $(seq 4 $((($reportcount*3)+3)))
-                do
-                        if [ $((($i-4)%3)) = 0 ];then
-                                echo "Report n$j"
-                                j=$(($j+1))
-                        fi
-                        sed -n $(echo $i)p $dir/relevantinfo | sed -e 's/<[^>]*>//g'
-                        echo
-                done
+                echo "If you wish to view reports go to the following link: https://www.bitcoinabuse.com/reports/$btcaddress"
         fi
 fi
 

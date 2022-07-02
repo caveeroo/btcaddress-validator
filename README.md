@@ -9,9 +9,9 @@ It will provide awebanalysis.com info directly into your terminal.
 ```
 git clone https://github.com/caveeroo/btcaddress-validator
 cd btcaddress-validator
-chmod +x btcaddressvalidator.sh
+chmod +x btcvalidate.sh
 
-./btcaddressvalidator.sh -a <btc address>
+./btcvalidate.sh -a <btc address>
 ```
 
 ## Abuse Report Collection
@@ -19,5 +19,5 @@ chmod +x btcaddressvalidator.sh
 You can request abuse reports for the specified address with the ```-r``` flag:
 
 ```
-./btcaddressvalidator.sh -a <btc address> -r
+./btcvalidate.sh -a <btc address> -r
 ```
